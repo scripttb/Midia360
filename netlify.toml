@@ -1,0 +1,22 @@
+# Configurações de Deploy para o Netlify
+# Este arquivo instrui o Netlify sobre como construir e servir a aplicação.
+
+# Configurações de Build
+[build]
+  # Comando para construir o projeto
+  command = "yarn build"
+  
+  # Diretório onde os arquivos do build serão gerados
+  publish = "dist"
+
+  # Ambiente de build
+  [build.environment]
+    # Garante que a versão do Node.js seja consistente com o desenvolvimento
+    NODE_VERSION = "18"
+
+# Regra de redirecionamento para Single Page Applications (SPA)
+# Isso garante que o React Router funcione corretamente em todas as rotas.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
